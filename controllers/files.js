@@ -9,11 +9,14 @@ const emailTemplate = require('../service/emailtemp');
 const fs = require('fs');
 const util = require('util');
 const unlinkFile = util.promisify(fs.unlink);
+const os = require('os');
 
+const tempDir = os.tmpdir();
+const uploadDir = path.join(tempDir);
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        return cb(null, `./uploads/`)
+        return cb(null, uploadDir)
     },
     filename: (req, file, cb) => {
         const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1E9)}${path.extname(file.originalname)}`
@@ -49,6 +52,7 @@ exports.pushFile = (req, res, next) => {
         const response = await file.save();
         // console.log(response);
         result = await awss3.uploadImage(req.file, response.filename)
+        console.log(response.path);
         await unlinkFile(response.path); // delete file from the server
         // console.log(result);
         return res.status(200).json({ file: `${process.env.APP_URL}/files/${response.uuid}` })
