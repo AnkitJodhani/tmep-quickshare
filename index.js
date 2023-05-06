@@ -22,7 +22,7 @@ app.set('view engine','ejs');
 
 
 
-app.use('/api/files',filesRoute);
+// app.use('/api/files',filesRoute);
 app.use('/files',filesRoute);
 
 

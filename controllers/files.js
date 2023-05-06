@@ -31,11 +31,7 @@ exports.pushFile = (req, res, next) => {
     // store file
     upload(req, res, async (err) => {
         // validate
-        setTimeout(function() {
-            console.log("This code will run after a 2-second delay.");
-          }, 1000);
-        const a = await req.file;
-        if (!a) {
+        if (!req.file) {
             return res.status(500).json({ error: "Didn't recive any file" })
         }
         if (err) {
