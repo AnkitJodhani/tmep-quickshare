@@ -13,7 +13,7 @@ const unlinkFile = util.promisify(fs.unlink);
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        return cb(null, `${__dirname}/uploads/`)
+        return cb(null, `./uploads/`)
     },
     filename: (req, file, cb) => {
         const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1E9)}${path.extname(file.originalname)}`
@@ -30,13 +30,15 @@ exports.pushFile = (req, res, next) => {
 
     // store file
     upload(req, res, async (err) => {
-        // validate
-        if (!req.file) {
-            return res.status(500).json({ error: "Didn't recive any file", obj: req.file })
-        }
         if (err) {
             return res.status(500).json({ error: err.message })
         }
+        // validate
+        if (!req.file) {
+            console.log(req.file);
+            return res.status(500).json({ ans: req.file ,error: "Didn't recive any file" })
+        }
+
         // store into database
         const file = new File({
             filename: req.file.filename,
