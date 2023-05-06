@@ -13,7 +13,7 @@ const unlinkFile = util.promisify(fs.unlink);
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        return cb(null, 'uploads/')
+        return cb(null, `${__dirname}/uploads/`)
     },
     filename: (req, file, cb) => {
         const uniqueName = `${Date.now()}-${Math.round(Math.random() * 1E9)}${path.extname(file.originalname)}`
