@@ -132,7 +132,7 @@ exports.sendEmail = async (req,res) =>{
         text: `${emailFrom} shared file with you`,
         html: emailTemplate({
             emailFrom,
-            downloadLink: `${process.env.APP_URL}/files/download/${file.uuid}`,
+            downloadLink: `${process.env.APP_URL}/files/${file.uuid}`,
             size: `${parseInt(file.size/1000)} KB`,
             expires: `24 Hours`
         })
