@@ -32,7 +32,7 @@ exports.pushFile = (req, res, next) => {
     upload(req, res, async (err) => {
         // validate
         if (!req.file) {
-            return res.status(500).json({ error: "Didn't recive any file" })
+            return res.status(500).json({ error: "Didn't recive any file", obj: req.file })
         }
         if (err) {
             return res.status(500).json({ error: err.message })
