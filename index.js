@@ -11,7 +11,9 @@ const filesRoute = require('./routes/files');
 const welcome = require('./routes/welcome');
 // configuration
 dotenv.config();
-app.use(cors());
+app.use(cors({
+    origin: '*'
+  }));
 
 // connectDB();
 app.use(morgan('common'));
