@@ -4,10 +4,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 const morgan = require('morgan');
-const connectDB = require('./config/db');
+const db = require('./config/db');
 const app = express();
 
 const filesRoute = require('./routes/files');
+const welcome = require('./routes/welcome');
 // configuration
 dotenv.config();
 app.use(cors());
@@ -24,6 +25,7 @@ app.set('view engine','ejs');
 
 // app.use('/api/files',filesRoute);
 app.use('/files',filesRoute);
+app.use('/',welcome)
 
 
 
@@ -32,8 +34,7 @@ const PORT = process.env.PORT || 3000;
 //     console.log(`Server is listening on Port : ${PORT}`);
 // })
 
-
-connectDB().then(() => {
+db.connectDB().then(() => {
     app.listen(PORT, () => {
         console.log(`Lestning to port ${PORT}`);
     })
