@@ -11,9 +11,22 @@ const filesRoute = require('./routes/files');
 const welcome = require('./routes/welcome');
 // configuration
 dotenv.config();
-app.use(cors({
-    origin: '*'
-  }));
+// app.use(cors({
+//     origin: '*'
+//   }));
+
+
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Origin','https://share.ankitjodhani.club, https://www.share.ankitjodhani.club,https://ankitjodhani.club, https://www.ankitjodhani.club')
+    res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    if(req.method==='OPTIONS'){
+        res.header('Acess-Control-Allow-Methods','PUT, POST, PATCH, DELETE, GET ');
+        return res.status(200).json({ });
+    }
+    next();
+})
+
 
 // connectDB();
 app.use(morgan('common'));

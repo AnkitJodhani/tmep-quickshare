@@ -6,15 +6,15 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="./../public/img/fav.svg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download | InShare - File Sharing Made Easy</title>
+    <title>Download | QuickShare - File Sharing Made Easy</title>
     <link rel="stylesheet" href="./../public/style/style.css">
 </head>
 
 <body>
-    <img src="../public/img/logo.png" alt="Inshare logo" class="logo">
+    <img src="../public/img/logo.png" alt="QuickShare logo" class="logo">
 
     <section class="download">
-        <img class="download__icon" src="./../public/img/download.svg" alt="inshare-download">
+        <img class="download__icon" src="./../public/img/download.svg" alt="QuickShare-download">
         <% if(locals.error){ %>
         <h4><%= locals.error %> 😏</h4>
         <% } else { %>
@@ -35,41 +35,5 @@
 
 
 
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="./../public/img/download.svg" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download | QuickShare</title>
-    <link rel="stylesheet" href="./../public/style/style.css">
-</head>
-
-<body>
-    <img src="../public/img/logo.png" alt="QuickShare logo" class="logo">
-
-    <section class="download">
-        <img class="download__icon" src="./../public/img/download.png" alt="Download image">
-        <% if(locals.error){ %>
-        <h4><%= locals.error %> 😏</h4>
-        <% } else { %>
-        <h2>Your file is ready to download</h2>
-        <p>Link expires in 24 hours</p>
-        <div class="download__meta">
-            <h4><%= filename %></h4>
-            <small><%= parseInt(filesize/1000) %> KB</small>
-        </div>
-        <div class="send-btn-container">
-            <a href="<%= downloadlink %>">Download file</a>
-        </div>
-        <% } %>
-    </section>
-
-</body>
-
-</html> -->
 
 
