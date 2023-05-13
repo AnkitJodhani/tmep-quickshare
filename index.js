@@ -12,7 +12,7 @@ const welcome = require('./routes/welcome');
 // configuration
 dotenv.config();
 app.use(cors({
-    origin: '*'
+    origin: 'https://share.ankitjodhani.club/'
   }));
 
 // const corsOptions = {
