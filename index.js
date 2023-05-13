@@ -17,7 +17,7 @@ dotenv.config();
 
 
 app.use((req,res,next)=>{
-    res.header('Access-Control-Allow-Origin','https://share.ankitjodhani.club, https://www.share.ankitjodhani.club,https://ankitjodhani.club, https://www.ankitjodhani.club')
+    res.header('Access-Control-Allow-Origin','https://share.ankitjodhani.club')
     res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     if(req.method==='OPTIONS'){
