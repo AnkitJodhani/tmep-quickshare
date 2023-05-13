@@ -11,17 +11,17 @@ const filesRoute = require('./routes/files');
 const welcome = require('./routes/welcome');
 // configuration
 dotenv.config();
-// app.use(cors({
-//     origin: '*'
-//   }));
+app.use(cors({
+    origin: '*'
+  }));
 
-const corsOptions = {
-    origin: 'https://share.ankitjodhani.club'
-  };
+// const corsOptions = {
+//     origin: 'https://share.ankitjodhani.club'
+//   };
   
-  app.use(cors(corsOptions));
+//   app.use(cors(corsOptions));
 
-  
+
 // connectDB();
 app.use(morgan('common'));
 app.use(express.json());
