@@ -15,15 +15,13 @@ dotenv.config();
 //     origin: '*'
 //   }));
 
+const corsOptions = {
+    origin: 'https://share.ankitjodhani.club'
+  };
+  
+  app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'share.ankitjodhani.club'); // Allow requests from this specific origin
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Allow specific HTTP methods
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allow specific headers
-    next();
-  });
-
-
+  
 // connectDB();
 app.use(morgan('common'));
 app.use(express.json());
